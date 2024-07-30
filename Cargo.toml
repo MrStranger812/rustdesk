@@ -4,7 +4,7 @@ version = "1.2.7"
 authors = ["rustdesk <info@rustdesk.com>"]
 edition = "2021"
 build= "build.rs"
-description = "RustDesk Remote Desktop"
+description = "HamrahDesk Remote Desktop"
 default-run = "rustdesk"
 rust-version = "1.75"
 
@@ -174,8 +174,8 @@ exclude = ["vdi/host", "examples/custom_plugin"]
 
 [package.metadata.winres]
 LegalCopyright = "Copyright © 2024 Purslane Ltd. All rights reserved."
-ProductName = "RustDesk"
-FileDescription = "RustDesk Remote Desktop"
+ProductName = "HamrahDesk"
+FileDescription = "HamrahDesk Remote Desktop"
 OriginalFilename = "rustdesk.exe"
 
 [target.'cfg(target_os="windows")'.build-dependencies]
