@@ -2,7 +2,7 @@ lazy_static::lazy_static! {
 pub static ref T: std::collections::HashMap<&'static str, &'static str> =
     [
         ("desk_tip", "Your desktop can be accessed with this ID and password."),
-        ("connecting_status", "Connecting to the RustDesk network..."),
+        ("connecting_status", "Connecting to the HamrahDesk network..."),
         ("not_ready_status", "Not ready. Please check your connection"),
         ("ID/Relay Server", "ID/Relay server"),
         ("id_change_tip", "Only a-z, A-Z, 0-9 and _ (underscore) characters allowed. The first letter must be a-z, A-Z. Length between 6 and 16."),
@@ -33,9 +33,9 @@ pub static ref T: std::collections::HashMap<&'static str, &'static str> =
         ("Insert Lock", "Insert lock"),
         ("Set Password", "Set password"),
         ("OS Password", "OS password"),
-        ("install_tip", "Due to UAC, RustDesk can not work properly as the remote side in some cases. To avoid UAC, please click the button below to install RustDesk to the system."),
-        ("config_acc", "In order to control your Desktop remotely, you need to grant RustDesk \"Accessibility\" permissions."),
-        ("config_screen", "In order to access your Desktop remotely, you need to grant RustDesk \"Screen Recording\" permissions."),
+        ("install_tip", "Due to UAC, HamrahDesk can not work properly as the remote side in some cases. To avoid UAC, please click the button below to install HamrahDesk to the system."),
+        ("config_acc", "In order to control your Desktop remotely, you need to grant HamrahDesk \"Accessibility\" permissions."),
+        ("config_screen", "In order to access your Desktop remotely, you need to grant HamrahDesk \"Screen Recording\" permissions."),
         ("Installation Path", "Installation path"),
         ("agreement_tip", "By starting the installation, you accept the license agreement."),
         ("Accept and Install", "Accept and install"),
@@ -84,7 +84,7 @@ pub static ref T: std::collections::HashMap<&'static str, &'static str> =
         ("File Connection", "File connection"),
         ("Screen Connection", "Screen connection"),
         ("Open System Setting", "Open system setting"),
-        ("android_input_permission_tip1", "In order for a remote device to control your Android device via mouse or touch, you need to allow RustDesk to use the \"Accessibility\" service."),
+        ("android_input_permission_tip1", "In order for a remote device to control your Android device via mouse or touch, you need to allow HamrahDesk to use the \"Accessibility\" service."),
         ("android_input_permission_tip2", "Please go to the next system settings page, find and enter [Installed Services], turn on [RustDesk Input] service."),
         ("android_new_connection_tip", "New control request has been received, which wants to control your current device."),
         ("android_service_will_start_tip", "Turning on \"Screen Capture\" will automatically start the service, allowing other devices to request a connection to your device."),
@@ -94,7 +94,7 @@ pub static ref T: std::collections::HashMap<&'static str, &'static str> =
         ("android_permission_may_not_change_tip", "Permissions for established connections may not be changed instantly until reconnected."),
         ("doc_mac_permission", "https://rustdesk.com/docs/en/client/mac/#enable-permissions"),
         ("Ignore Battery Optimizations", "Ignore battery optimizations"),
-        ("android_open_battery_optimizations_tip", "If you want to disable this feature, please go to the next RustDesk application settings page, find and enter [Battery], Uncheck [Unrestricted]"),
+        ("android_open_battery_optimizations_tip", "If you want to disable this feature, please go to the next HamrahDesk application settings page, find and enter [Battery], Uncheck [Unrestricted]"),
         ("remote_restarting_tip", "Remote device is restarting, please close this message box and reconnect with permanent password after a while"),
         ("Exit Fullscreen", "Exit fullscreen"),
         ("Mobile Actions", "Mobile actions"),
@@ -156,7 +156,7 @@ pub static ref T: std::collections::HashMap<&'static str, &'static str> =
         ("show_monitors_tip", "Show monitors in toolbar"),
         ("View Mode", "View mode"),
         ("login_linux_tip", "You need to login to remote Linux account to enable a X desktop session"),
-        ("verify_rustdesk_password_tip", "Verify RustDesk password"),
+        ("verify_rustdesk_password_tip", "Verify HamrahDesk password"),
         ("remember_account_tip", "Remember this account"),
         ("os_account_desk_tip", "This account is used to login the remote OS and enable the desktop session in headless"),
         ("OS Account", "OS account"),
@@ -231,7 +231,7 @@ pub static ref T: std::collections::HashMap<&'static str, &'static str> =
         ("enable-bot-desc", "1. Open a chat with @BotFather.\n2. Send the command \"/newbot\". You will receive a token after completing this step.\n3. Start a chat with your newly created bot. Send a message beginning with a forward slash (\"/\") like \"/hello\" to activate it.\n"),
         ("cancel-2fa-confirm-tip", "Are you sure you want to cancel 2FA?"),
         ("cancel-bot-confirm-tip", "Are you sure you want to cancel Telegram bot?"),
-        ("About RustDesk", ""),
+        ("About HamrahDesk", ""),
         ("network_error_tip", "Please check your network connection, then click retry.")
     ].iter().cloned().collect();
 }
