@@ -9,6 +9,7 @@ import 'package:path/path.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import 'package:window_manager/window_manager.dart';
 
+
 class InstallPage extends StatefulWidget {
   const InstallPage({Key? key}) : super(key: key);
 
@@ -70,9 +71,12 @@ class _InstallPageBodyState extends State<_InstallPageBody>
     textStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.normal),
     padding: EdgeInsets.symmetric(vertical: 15, horizontal: 12),
   );
-
   _InstallPageBodyState() {
-    controller = TextEditingController(text: bind.installInstallPath());
+    // Use the new default path, falling back to the original method if not on Windows
+    final defaultPath = Platform.isWindows 
+        ? path.join('C:', 'Program Files', 'Hamrah Desk')
+        : bind.installInstallPath();
+    controller = TextEditingController(text: defaultPath);
   }
 
   @override
