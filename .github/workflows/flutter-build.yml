@@ -173,6 +173,10 @@ jobs:
         if: env.UPLOAD_ARTIFACT == 'true'
         run: |
           sed -i '/dpiAware/d' res/manifest.xml
+          echo "---------------------------"
+          pwd
+          ls
+          echo "finish listing files"
           pushd ./libs/portable
           pip3 install -r requirements.txt
           python3 ./generate.py -f ../../hamrahdesk/ -o . -e ../../hamrahdesk/hamrahdesk.exe
