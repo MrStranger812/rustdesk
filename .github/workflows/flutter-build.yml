@@ -153,25 +153,15 @@ jobs:
         with:
           name: topmostwindow-artifacts
           path: "./hamrahdesk"
-
-      - name: Install dependencies
-        if: env.UPLOAD_ARTIFACT == 'true'
-        run: |
-          pip3 install requests argparse
-
-      - name: Sign files
-        if: env.UPLOAD_ARTIFACT == 'true'
-        run: |
-          BASE_URL=${{ secrets.SIGN_BASE_URL }} SECRET_KEY=${{ secrets.SIGN_SECRET_KEY }} python3 res/job.py sign_files ./hamrahdesk/
-
+          
       - name: Upload unsigned
         if: env.UPLOAD_ARTIFACT == 'true'
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@master
         with:
-          name: hamrahdesk-unsigned-windows-${{ matrix.job.arch }}
+          name: hamrahdesk-unsigned-windows-${{ matrix.job.arch }}         
           path: hamrahdesk
 
-
+          
       - name: Sign hamrahdesk files
         if: env.UPLOAD_ARTIFACT == 'true'
         shell: bash
@@ -204,7 +194,7 @@ jobs:
         uses: microsoft/setup-msbuild@v2
 
       - name: Sign hamrahdesk self-extracted file
-        if: env.UPLOAD_ARTIFACT == 'true' && env.SIGN_BASE_URL != ''
+        if: env.UPLOAD_ARTIFACT == 'true'
         shell: bash
         run: |
           BASE_URL=${{ secrets.SIGN_BASE_URL }} SECRET_KEY=${{ secrets.SIGN_SECRET_KEY }} python3 res/job.py sign_files /d/a/rustdesk/rustdesk/SignOutput
