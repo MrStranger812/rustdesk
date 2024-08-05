@@ -186,8 +186,10 @@ jobs:
           popd
           pwd
           mkdir -p ./SignOutput
-          pwd
+          echo "./SignOutput"
           cd ./target/release
+          echo "changed directory to ./release"
+          pwd
           ls
           mv ./target/release/rustdesk-portable-packer.exe ./SignOutput/hamrahdesk-${{ env.VERSION }}-${{ matrix.job.arch }}.exe
 
