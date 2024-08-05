@@ -191,7 +191,7 @@ jobs:
           echo "changed directory to ./release"
           pwd
           ls
-          mv ./target/release/rustdesk-portable-packer.exe ./SignOutput/hamrahdesk-${{ env.VERSION }}-${{ matrix.job.arch }}.exe
+          mv /d/a/rustdesk/rustdesk/target/release/rustdesk-portable-packer.exe ./SignOutput/hamrahdesk-${{ env.VERSION }}-${{ matrix.job.arch }}.exe
 
       - name: Add MSBuild to PATH
         uses: microsoft/setup-msbuild@v2
