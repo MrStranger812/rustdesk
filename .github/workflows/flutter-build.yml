@@ -187,10 +187,6 @@ jobs:
           cd ./target/release
           echo "changed directory to ./release"
           pwd
-          echo "list of files in ./release"
-          ls
-          echo "List of files in sign:"
-          ls -l ./SignOutput
           mv /d/a/rustdesk/rustdesk/target/release/rustdesk-portable-packer.exe /d/a/rustdesk/rustdesk/SignOutput/hamrahdesk-${{ env.VERSION }}-${{ matrix.job.arch }}.exe
 
       - name: Add MSBuild to PATH
