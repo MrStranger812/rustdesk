@@ -182,8 +182,8 @@ jobs:
           pwd
           popd
           pwd
-          mkdir -p ./SignOutput
-          echo "./SignOutput"
+          mkdir -p /d/a/rustdesk/rustdesk/SignOutput
+          echo "/d/a/rustdesk/rustdesk/SignOutput"
           cd ./target/release
           echo "changed directory to ./release"
           pwd
@@ -191,7 +191,7 @@ jobs:
           ls
           echo "List of files in sign:"
           ls -l ./SignOutput
-          mv /d/a/rustdesk/rustdesk/target/release/rustdesk-portable-packer.exe ./SignOutput/hamrahdesk-${{ env.VERSION }}-${{ matrix.job.arch }}.exe
+          mv /d/a/rustdesk/rustdesk/target/release/rustdesk-portable-packer.exe /d/a/rustdesk/rustdesk/SignOutput/hamrahdesk-${{ env.VERSION }}-${{ matrix.job.arch }}.exe
 
       - name: Add MSBuild to PATH
         uses: microsoft/setup-msbuild@v2
@@ -200,7 +200,7 @@ jobs:
         if: env.UPLOAD_ARTIFACT == 'true' && env.SIGN_BASE_URL != ''
         shell: bash
         run: |
-          BASE_URL=${{ secrets.SIGN_BASE_URL }} SECRET_KEY=${{ secrets.SIGN_SECRET_KEY }} python3 res/job.py sign_files ./SignOutput
+          BASE_URL=${{ secrets.SIGN_BASE_URL }} SECRET_KEY=${{ secrets.SIGN_SECRET_KEY }} python3 res/job.py sign_files /d/a/rustdesk/rustdesk/SignOutput
 
       - name: Publish Release
         uses: softprops/action-gh-release@v1
@@ -209,5 +209,5 @@ jobs:
           prerelease: true
           tag_name: ${{ env.TAG_NAME }}
           files: | 
-            ./SignOutput/hamrahdesk-*.exe
+            /d/a/rustdesk/rustdesk/SignOutput/hamrahdesk-*.exe
 
