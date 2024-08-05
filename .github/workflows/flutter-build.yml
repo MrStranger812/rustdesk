@@ -178,10 +178,17 @@ jobs:
           ls
           echo "finish listing files"
           pushd ./libs/portable
+          pwd
           pip3 install -r requirements.txt
+          pwd
           python3 ./generate.py -f ../../hamrahdesk/ -o . -e ../../hamrahdesk/hamrahdesk.exe
+          pwd
           popd
+          pwd
           mkdir -p ./SignOutput
+          pwd
+          cd ./target/release
+          ls
           mv ./target/release/hamrahdesk-portable-packer.exe ./SignOutput/hamrahdesk-${{ env.VERSION }}-${{ matrix.job.arch }}.exe
 
       - name: Add MSBuild to PATH
