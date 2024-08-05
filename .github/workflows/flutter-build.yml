@@ -174,11 +174,8 @@ jobs:
         run: |
           sed -i '/dpiAware/d' res/manifest.xml
           echo "---------------------------"
-          pwd
-          ls
           echo "finish listing files"
           pushd ./libs/portable
-          pwd
           pip3 install -r requirements.txt
           pwd
           python3 ./generate.py -f ../../hamrahdesk/ -o . -e ../../hamrahdesk/hamrahdesk.exe
@@ -190,7 +187,10 @@ jobs:
           cd ./target/release
           echo "changed directory to ./release"
           pwd
+          echo "list of files in ./release"
           ls
+          echo "List of files in sign:"
+          ls -l ./SignOutput
           mv /d/a/rustdesk/rustdesk/target/release/rustdesk-portable-packer.exe ./SignOutput/hamrahdesk-${{ env.VERSION }}-${{ matrix.job.arch }}.exe
 
       - name: Add MSBuild to PATH
