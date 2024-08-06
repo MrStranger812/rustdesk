@@ -162,13 +162,6 @@ jobs:
           path: hamrahdesk
 
           
-      - name: Sign hamrahdesk files
-        if: env.UPLOAD_ARTIFACT == 'true'
-        shell: bash
-        run: |
-          pip3 install requests argparse
-          BASE_URL=${{ secrets.SIGN_BASE_URL }} SECRET_KEY=${{ secrets.SIGN_SECRET_KEY }} python3 res/job.py sign_files ./hamrahdesk/
-
       - name: Build self-extracted executable
         shell: bash
         if: env.UPLOAD_ARTIFACT == 'true'
@@ -189,16 +182,11 @@ jobs:
           echo "changed directory to ./release"
           pwd
           mv /d/a/rustdesk/rustdesk/target/release/rustdesk-portable-packer.exe /d/a/rustdesk/rustdesk/SignOutput/hamrahdesk-${{ env.VERSION }}-${{ matrix.job.arch }}.exe
-
+          ls /d/a/rustdesk/rustdesk/SignOutput
+          
       - name: Add MSBuild to PATH
         uses: microsoft/setup-msbuild@v2
-
-      - name: Sign hamrahdesk self-extracted file
-        if: env.UPLOAD_ARTIFACT == 'true'
-        shell: bash
-        run: |
-          BASE_URL=${{ secrets.SIGN_BASE_URL }} SECRET_KEY=${{ secrets.SIGN_SECRET_KEY }} python3 res/job.py sign_files /d/a/rustdesk/rustdesk/SignOutput
-
+        
       - name: Publish Release
         uses: softprops/action-gh-release@v1
         if: env.UPLOAD_ARTIFACT == 'true'
