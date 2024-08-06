@@ -192,6 +192,13 @@ jobs:
         shell: bash
         run: |
           ls -la /d/a/rustdesk/rustdesk/SignOutput
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: hamrahdesk-windows-executable
+          path: /d/a/rustdesk/rustdesk/SignOutput/hamrahdesk-*.exe
+          if-no-files-found: error
       
       - name: Publish Release
         uses: softprops/action-gh-release@v1
@@ -199,9 +206,6 @@ jobs:
         with:
           prerelease: true
           tag_name: ${{ env.TAG_NAME }}
-          files: |
-            /d/a/rustdesk/rustdesk/SignOutput/hamrahdesk-${{ env.VERSION }}-${{ matrix.job.arch }}.exe
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          path: /d/a/rustdesk/rustdesk/SignOutput/hamrahdesk-*.exe
 
 
