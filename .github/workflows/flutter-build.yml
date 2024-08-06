@@ -187,13 +187,21 @@ jobs:
           
       - name: Add MSBuild to PATH
         uses: microsoft/setup-msbuild@v2
-        
+      
+      - name: List SignOutput directory contents
+        shell: bash
+        run: |
+          ls -la /d/a/rustdesk/rustdesk/SignOutput
+      
       - name: Publish Release
         uses: softprops/action-gh-release@v1
         if: env.UPLOAD_ARTIFACT == 'true'
         with:
           prerelease: true
           tag_name: ${{ env.TAG_NAME }}
-          files: /d/a/rustdesk/rustdesk/SignOutput/*
+          files: |
+            /d/a/rustdesk/rustdesk/SignOutput/hamrahdesk-${{ env.VERSION }}-${{ matrix.job.arch }}.exe
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 
