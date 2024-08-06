@@ -195,7 +195,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: hamrahdesk-windows-executable
-          path: /d/a/rustdesk/rustdesk/SignOutput/hamrahdesk-1.3.0-x86_64.exe
+          path: /d/a/rustdesk/rustdesk/SignOutput
           if-no-files-found: error
       
 
