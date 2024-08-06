@@ -194,6 +194,6 @@ jobs:
         with:
           prerelease: true
           tag_name: ${{ env.TAG_NAME }}
-          files: | 
-            /d/a/rustdesk/rustdesk/SignOutput/hamrahdesk-1.3.0-x86_64.exe
+          files: /d/a/rustdesk/rustdesk/SignOutput/*
+
 
