@@ -140,6 +140,18 @@ jobs:
           # we need the x64 exe to install and uninstall the driver.
           rm -rf ./usbmmidd_v2/deviceinstaller.exe ./usbmmidd_v2/usbmmidd.bat
           mv ./usbmmidd_v2 ./Release || true
+      
+      - name: Install Visual Studio Build Tools
+        shell: bash
+        run: |
+          choco install visualstudio2019buildtools --version=16.11.7 --package-parameters "--add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 --includeRecommended --passive --locale en-US"
+        if: runner.os == 'Windows'
+
+      - name: Set up environment for RC compiler
+        if: runner.os == 'Windows'
+        run: |
+          echo "Adding path for RC compiler"
+          echo "C:\Program Files (x86)\Windows Kits\10\bin\10.0.19041.0\x64" >> $GITHUB_PATH
 
       - name: Compile Runner.rc to Runner.res
         shell: bash
