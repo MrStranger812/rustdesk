@@ -148,6 +148,12 @@ jobs:
           rm -rf ./usbmmidd_v2/deviceinstaller.exe ./usbmmidd_v2/usbmmidd.bat
           mv ./usbmmidd_v2 ./Release || true
 
+      - name: Compile Runner.rc to Runner.res
+        shell: bash
+        run: |
+        # Compile Runner.rc to generate Runner.res
+          rc /fo "./flutter/windows/runner/Runner.res" "./flutter/windows/runner/Runner.rc"
+      
       - name: find Runner.res
         # Windows: find Runner.res (compiled from ./flutter/windows/runner/Runner.rc), copy to ./Runner.res
         # Runner.rc does not contain actual version, but Runner.res does
