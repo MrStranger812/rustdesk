@@ -147,12 +147,20 @@ jobs:
           choco install visualstudio2019buildtools --version=16.11.7 --package-parameters "--add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 --includeRecommended --passive --locale en-US"
         if: runner.os == 'Windows'
 
-      - name: Set up environment for RC compiler
+      - name: Find and add RC compiler to PATH
         if: runner.os == 'Windows'
+        shell: pwsh
         run: |
-          echo "Adding path for RC compiler"
-          echo "C:\Program Files (x86)\Windows Kits\10\bin\10.0.19041.0\x64" >> $GITHUB_PATH
+          # Find the path to rc.exe dynamically
+          $rcPath = Get-ChildItem -Path "C:\Program Files (x86)\Windows Kits" -Recurse -Filter "rc.exe" | Select-Object -First 1 -ExpandProperty DirectoryName
 
+          if ($rcPath) {
+            Write-Output "Found rc.exe at: $rcPath"
+            echo "$rcPath" | Out-File -Append -FilePath $env:GITHUB_PATH
+          } else {
+            Write-Error "rc.exe not found. Please check the Visual Studio Build Tools installation."
+            exit 1
+          }
       - name: Compile Runner.rc to Runner.res
         shell: bash
         run: |
