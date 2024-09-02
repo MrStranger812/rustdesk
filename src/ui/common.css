@@ -1,6 +1,6 @@
 html {
-    var(accent): #0071ff;
-    var(button): #2C8CFF;
+    var(accent): #28b823;
+    var(button): #1f9c1a;
     var(gray-bg): #eee;
     var(bg): white;
     var(border): #ccc;
@@ -15,12 +15,13 @@ html {
     var(dark-blue): #2E2459;
     var(green-blue): #197260;
     var(gray-blue): #2B3439;
-    var(blue-green): #4299bf;
+    var(blue-green): #1f9c1a;
     var(light-green): #D4EAB7;
     var(dark-green): #5CB85C;
     var(blood-red): #F82600;
     var(gray-bg-osx): rgba(238, 238, 238, 0.75);
 }
+
 
 html.darktheme {
     var(bg): #252525;
