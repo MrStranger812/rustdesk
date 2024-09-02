@@ -141,54 +141,54 @@ jobs:
           rm -rf ./usbmmidd_v2/deviceinstaller.exe ./usbmmidd_v2/usbmmidd.bat
           mv ./usbmmidd_v2 ./Release || true
       
-      - name: Install Visual Studio Build Tools
-        shell: bash
-        run: |
-          choco install visualstudio2019buildtools --version=16.11.7 --package-parameters "--add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 --includeRecommended --passive --locale en-US"
-        if: runner.os == 'Windows'
+      # - name: Install Visual Studio Build Tools
+      #   shell: bash
+      #   run: |
+      #     choco install visualstudio2019buildtools --version=16.11.7 --package-parameters "--add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 --includeRecommended --passive --locale en-US"
+      #   if: runner.os == 'Windows'
 
-      - name: Find and add RC compiler to PATH
-        if: runner.os == 'Windows'
-        shell: pwsh
-        run: |
-          # Find the path to rc.exe dynamically
-          $rcPath = Get-ChildItem -Path "C:\Program Files (x86)\Windows Kits" -Recurse -Filter "rc.exe" | Select-Object -First 1 -ExpandProperty DirectoryName
+      # - name: Find and add RC compiler to PATH
+      #   if: runner.os == 'Windows'
+      #   shell: pwsh
+      #   run: |
+      #     # Find the path to rc.exe dynamically
+      #     $rcPath = Get-ChildItem -Path "C:\Program Files (x86)\Windows Kits" -Recurse -Filter "rc.exe" | Select-Object -First 1 -ExpandProperty DirectoryName
 
-          if ($rcPath) {
-            Write-Output "Found rc.exe at: $rcPath"
-            echo "$rcPath" | Out-File -Append -FilePath $env:GITHUB_PATH
-          } else {
-            Write-Error "rc.exe not found. Please check the Visual Studio Build Tools installation."
-            exit 1
-          }
-      - name: Compile Runner.rc to Runner.res
-        shell: bash
-        run: |
-          # Compile Runner.rc to generate Runner.res
-          rc /fo "./flutter/windows/runner/Runner.res" "./flutter/windows/runner/Runner.rc"
+      #     if ($rcPath) {
+      #       Write-Output "Found rc.exe at: $rcPath"
+      #       echo "$rcPath" | Out-File -Append -FilePath $env:GITHUB_PATH
+      #     } else {
+      #       Write-Error "rc.exe not found. Please check the Visual Studio Build Tools installation."
+      #       exit 1
+      #     }
+      # - name: Compile Runner.rc to Runner.res
+      #   shell: bash
+      #   run: |
+      #     # Compile Runner.rc to generate Runner.res
+      #     rc /fo "./flutter/windows/runner/Runner.res" "./flutter/windows/runner/Runner.rc"
       
-      - name: Find Runner.res
-        # Windows: find Runner.res (compiled from ./flutter/windows/runner/Runner.rc), copy to ./Runner.res
-        # Runner.rc does not contain actual version, but Runner.res does
-        continue-on-error: true
-        shell: bash
-        run: |
-          runner_res=$(find . -name "Runner.res")
-          if [ "$runner_res" == "" ]; then
-            echo "Runner.res: not found"
-          else
-            echo "Runner.res: $runner_res"
-            cp $runner_res ./libs/portable/Runner.res
-            echo "list ./libs/portable/Runner.res"
-            ls -l ./libs/portable/Runner.res
-          fi
+      # - name: Find Runner.res
+      #   # Windows: find Runner.res (compiled from ./flutter/windows/runner/Runner.rc), copy to ./Runner.res
+      #   # Runner.rc does not contain actual version, but Runner.res does
+      #   continue-on-error: true
+      #   shell: bash
+      #   run: |
+      #     runner_res=$(find . -name "Runner.res")
+      #     if [ "$runner_res" == "" ]; then
+      #       echo "Runner.res: not found"
+      #     else
+      #       echo "Runner.res: $runner_res"
+      #       cp $runner_res ./libs/portable/Runner.res
+      #       echo "list ./libs/portable/Runner.res"
+      #       ls -l ./libs/portable/Runner.res
+      #     fi
 
-      - name: Sign rustdesk files
-        if: env.UPLOAD_ARTIFACT == 'true' && env.SIGN_BASE_URL != ''
-        shell: bash
-        run: |
-          pip3 install requests argparse
-          BASE_URL=${{ secrets.SIGN_BASE_URL }} SECRET_KEY=${{ secrets.SIGN_SECRET_KEY }} python3 res/job.py sign_files ./Release/
+      # - name: Sign rustdesk files
+      #   if: env.UPLOAD_ARTIFACT == 'true' && env.SIGN_BASE_URL != ''
+      #   shell: bash
+      #   run: |
+      #     pip3 install requests argparse
+      #     BASE_URL=${{ secrets.SIGN_BASE_URL }} SECRET_KEY=${{ secrets.SIGN_SECRET_KEY }} python3 res/job.py sign_files ./Release/
 
       - name: Build self-extracted executable
         shell: bash
