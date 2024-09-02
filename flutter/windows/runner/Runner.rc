@@ -89,13 +89,13 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "Purslane Ltd" "\0"
-            VALUE "FileDescription", "RustDesk Remote Desktop" "\0"
+            VALUE "CompanyName", "Hamrah Hesabe Amin Ltd" "\0"
+            VALUE "FileDescription", "HamrahDesk Remote Desktop" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "rustdesk" "\0"
-            VALUE "LegalCopyright", "Copyright © 2024 Purslane Ltd. All rights reserved." "\0"
-            VALUE "OriginalFilename", "rustdesk.exe" "\0"
-            VALUE "ProductName", "RustDesk" "\0"
+            VALUE "InternalName", "hamrahdesk" "\0"
+            VALUE "LegalCopyright", "Copyright © 2024 Hamrah Hesabe Amin Ltd. All rights reserved." "\0"
+            VALUE "OriginalFilename", "hamrahdesk.exe" "\0"
+            VALUE "ProductName", "HamrahDesk" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END
