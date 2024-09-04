@@ -5,7 +5,7 @@ authors = ["Hamrah Hesabe Amin <info@hamrahhesabeamin.com>"]
 edition = "2021"
 build= "build.rs"
 description = "HamrahDesk Remote Desktop"
-default-run = "rustdesk"
+default-run = "hamrahdesk"
 rust-version = "1.75"
 
 [lib]
