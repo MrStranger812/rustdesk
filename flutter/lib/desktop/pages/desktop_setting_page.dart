@@ -1907,7 +1907,7 @@ class _AboutState extends State<_About> {
                           .marginSymmetric(vertical: 4.0)),
                   InkWell(
                       onTap: () {
-                        launchUrlString('https://rustdesk.com/privacy.html');
+                        launchUrlString('https://hamrahhesabeamin.com');
                       },
                       child: Text(
                         translate('Privacy Statement'),
@@ -1915,7 +1915,7 @@ class _AboutState extends State<_About> {
                       ).marginSymmetric(vertical: 4.0)),
                   InkWell(
                       onTap: () {
-                        launchUrlString('https://rustdesk.com');
+                        launchUrlString('https://hamrahhesabeamin.com');
                       },
                       child: Text(
                         translate('Website'),
@@ -1933,7 +1933,7 @@ class _AboutState extends State<_About> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'Copyright © ${DateTime.now().toString().substring(0, 4)} Purslane Ltd.\n$license',
+                                'Copyright © ${DateTime.now().toString().substring(0, 4)} Hamrah Hesabe Amin Ltd.\n$license',
                                 style: const TextStyle(color: Colors.white),
                               ),
                               Text(
