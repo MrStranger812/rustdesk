@@ -5461,7 +5461,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "hamrahdesk"
+name = "rustdesk"
 version = "1.3.1"
 dependencies = [
  "android-wakelock",
