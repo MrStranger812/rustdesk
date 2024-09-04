@@ -1,5 +1,5 @@
 [package]
-name = "rustdesk"
+name = "hamrahdesk"
 version = "1.3.1"
 authors = ["Hamrah Hesabe Amin <info@hamrahhesabeamin.com>"]
 edition = "2021"
@@ -172,7 +172,7 @@ members = ["libs/scrap", "libs/hbb_common", "libs/enigo", "libs/clipboard", "lib
 exclude = ["vdi/host", "examples/custom_plugin"]
 
 [package.metadata.winres]
-LegalCopyright = "Copyright © 2024 Purslane Ltd. All rights reserved."
+LegalCopyright = "Copyright © 2024 Hamrah Hesabe Amin Ltd. All rights reserved."
 ProductName = "HamrahDesk"
 FileDescription = "HamrahDesk Remote Desktop"
 OriginalFilename = "hamrahdesk.exe"
