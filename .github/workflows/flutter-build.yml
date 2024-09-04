@@ -149,7 +149,9 @@ jobs:
           pwd
           Remove-Item -Path usbmmidd_v2\Win32 -Recurse
           Remove-Item -Path "usbmmidd_v2\deviceinstaller64.exe", "usbmmidd_v2\deviceinstaller.exe", "usbmmidd_v2\usbmmidd.bat"
-          ls -la ./flutter/build/windows/x64/runner/Release
+          ls ./flutter/build/windows/x64/runner/Release
+          echo "files in ./flutter/build/windows/x64/runner:"
+          ls ./flutter/build/windows/x64/runner
           mv ./flutter/build/windows/x64/runner/Release ./rustdesk
           mv -Force .\usbmmidd_v2 ./rustdesk
 
