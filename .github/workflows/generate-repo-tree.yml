@@ -3,7 +3,7 @@ name: Generate Repository Tree
 on:
   push:
     branches:
-      - main  # You can change this to the branch you want to trigger the workflow on
+      - main  
 
 jobs:
   generate-tree:
