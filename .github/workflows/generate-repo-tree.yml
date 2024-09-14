@@ -1,0 +1,26 @@
+name: Generate Repository Tree
+
+on:
+  push:
+    branches:
+      - main  # You can change this to the branch you want to trigger the workflow on
+
+jobs:
+  generate-tree:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v3
+
+      - name: Install Tree
+        run: sudo apt-get update && sudo apt-get install -y tree
+
+      - name: Generate Tree Structure
+        run: tree -I '.git' > repo-tree.txt
+
+      - name: Upload Tree Structure
+        uses: actions/upload-artifact@v3
+        with:
+          name: repo-tree
+          path: repo-tree.txt
