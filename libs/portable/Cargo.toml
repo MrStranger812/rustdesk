@@ -19,8 +19,8 @@ native-windows-gui = {version = "1.0", default-features = false, features = ["an
 
 [package.metadata.winres]
 LegalCopyright = "Copyright © 2024 Hamrah Hesabe Amin Ltd. All rights reserved."
-ProductName = "RustDesk"
-OriginalFilename = "rustdesk.exe"
+ProductName = "HamrahDesk"
+OriginalFilename = "hamrahdesk.exe"
 FileDescription = "HamrahDesk Remote Desktop"
 #ProductVersion = ""
 
